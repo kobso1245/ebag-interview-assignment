@@ -1,0 +1,14 @@
+{
+  "connections": {
+    "default": "sqlite://app.db"
+  },
+  "apps": {
+    "models": {
+      "models": [
+        "db.models"
+      ],
+      "default_connection": "default",
+      "migrations": "db.migrations"
+    }
+  }
+}
