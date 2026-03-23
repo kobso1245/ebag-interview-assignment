@@ -12,5 +12,5 @@ class ProductOut(BaseModel):
     unique_product_id: UUID4
     title: str
     description: str
-    image: str
+    image: bytes
     category: CategoryOut

@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from schemas.category import CategoryCreate
+from src.schemas.category import CategoryCreate
 
 # TODO: move to services
-from db.models import Category
+from src.db.models import Category
 
 router = APIRouter()
 

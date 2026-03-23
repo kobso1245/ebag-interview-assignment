@@ -15,15 +15,15 @@ pip install -r requirements.txt
 ```
 - Run the initial migrations
 ```bash
-tortoise --config-file confs/db.json migrate 
+tortoise -c src.utils.conf.CONFIG migrate
 ```
 - In case of model changes - update the migrations
 ```bash
-tortoise --config-file confs/db.json makemigrations 
+tortoise -c src.utils.conf.CONFIG migrate makemigrations 
 ```
 - Run the actual service (the setup also utilizes uvicorn)
 ```bash
-uvicorn run:app --host 0.0.0.0 --port 8090
+export ENV=LOCAL & python uvicorn_start.py
 ```
 - Once all of this is setup - the API is exposed on localhost:8090
 ```bash

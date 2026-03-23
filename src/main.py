@@ -1,18 +1,16 @@
 from fastapi import FastAPI
-import json
 from tortoise.contrib.fastapi import register_tortoise
 
-from api import category, product
+from src.api import category, product
+from src.utils.conf import build_db_config
 
 # Register FastAPI main app
 app = FastAPI(title="Ebag Interview Assignment")
 
-with open("confs/db.json") as f:
-    tortoise_config = json.load(f)
 
 register_tortoise(
     app,
-    config=tortoise_config,
+    config=build_db_config(),
     add_exception_handlers=True,
 )
 
