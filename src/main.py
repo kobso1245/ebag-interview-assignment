@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 
-from src.api import category, product
+from src.api import category, product, search
 from src.utils.conf import build_db_config
 
 # Register FastAPI main app
@@ -17,3 +17,4 @@ register_tortoise(
 # add the different routes
 app.include_router(category.router, prefix='/api')
 app.include_router(product.router, prefix='/api')
+app.include_router(search.router, prefix='/api')
