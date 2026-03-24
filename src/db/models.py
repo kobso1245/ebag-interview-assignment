@@ -4,20 +4,20 @@ from tortoise.models import Model
 from tortoise.expressions import Q
 
 class Category(Model):
-    category_id = fields.IntField(pk=True)
+    category_id = fields.IntField(primary_key=True)
     name = fields.CharField(max_length=256, unique=True)
     
     class Meta:
         table = 'category'
 
 class Product(Model):
-    unique_product_id = fields.UUIDField(pk=True)
+    unique_product_id = fields.UUIDField(primary_key=True)
     title = fields.CharField(max_length=256, unique=True)
     # set to text field, as generally the description could be quite a lot of text
-    description = fields.TextField()
+    description = fields.TextField(null=True)
     # the images will be stored on the local filesystem and the path will be stored in the DB
     # with a randomly generated name of the image
-    image_path = fields.CharField(max_length=1024)
+    image_path = fields.CharField(max_length=1024, null=True)
     price = fields.FloatField()
     # keep the initial datetime when the product was created
     created_at = fields.DatetimeField(auto_now_add=True)
