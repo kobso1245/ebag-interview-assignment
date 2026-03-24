@@ -32,8 +32,8 @@ class ProductCreate:
 class ProductOut(BaseModel):
     unique_product_id: UUID4
     title: str
-    description: str
-    image_path: str
+    description: str | None
+    image_path: str | None
     category: CategoryOut
     #category_id: int
     price: float

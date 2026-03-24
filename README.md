@@ -30,3 +30,8 @@ export ENV=LOCAL & python uvicorn_start.py
 [GET | POST | UPDATE | DELETE] http://localhost:8090/api/category
 [GET | POST | UPDATE | DELETE] http://localhost:8090/api/product
 ```
+- Run the tests, that are created for the API, with the command bellow.
+Note: There is a specific *conf_TEST* directory, that stores the test configuration, used when the tests are ran.
+```bash
+export ENV=TEST && pytest --asyncio-mode=auto
+```
