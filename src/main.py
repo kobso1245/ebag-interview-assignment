@@ -1,6 +1,8 @@
-from fastapi import FastAPI
-from tortoise.contrib.fastapi import register_tortoise
 import os
+
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from tortoise.contrib.fastapi import register_tortoise
 
 from src.api import category, product
 from src.utils.conf import build_db_config
@@ -19,3 +21,5 @@ register_tortoise(
 # add the different routes
 app.include_router(category.router, prefix='/api')
 app.include_router(product.router, prefix='/api')
+# add the location of the staticfiles, so that they can be downloaded
+app.mount("/images", StaticFiles(directory="uploads"), name="images")
